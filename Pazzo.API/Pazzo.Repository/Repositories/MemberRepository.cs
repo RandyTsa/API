@@ -71,6 +71,22 @@ WHERE MemberId = @MemberId;
                 });
             }
         }
+
+        public async Task<Member> QueryByDapperAsync(int memberId)
+        {
+            var sql = @"SELECT * FROM Member
+WHERE MemberId = @MemberId;
+";
+            using (var conn = base.GetConnection())
+            {
+                var member = await conn.QueryAsync<Member>(sql, new
+                {
+                    MemberId = memberId,
+                });
+
+                return member.FirstOrDefault();
+            }
+        }
     }
 
     public interface IMemberRepository : IBaseRepository<Member>
@@ -80,5 +96,7 @@ WHERE MemberId = @MemberId;
         Task<Member> UpdateByDapperAsync(Member member);
 
         Task<int> DeleteByDapperAsync(int memberId);
+
+        Task<Member> QueryByDapperAsync(int memberId);
     }
 }

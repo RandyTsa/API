@@ -75,5 +75,24 @@ namespace Pazzo.Service
                 return ApplicationResult<bool>.Failed(new ApplicationError() { Code = ReturnCodes.CODE_FAILURE, Description = ex.Message });
             }
         }
+
+        public async Task<ApplicationResult<QueryMemberResp>> QueryAsync(QueryMemberReq req)
+        {
+            try
+            {
+                var member = await memberRepository.QueryByDapperAsync(req.MemberId);
+
+                if (member != null)
+                {
+                    return ApplicationResult<QueryMemberResp>.Successed(new QueryMemberResp() { Name = member.Name, IdNumber = member.IdNumber });
+                }
+
+                return ApplicationResult<QueryMemberResp>.Failed(new ApplicationError() { Code = ReturnCodes.CODE_FAILURE, Description = MsgCodes.Msg_01 });
+            }
+            catch (Exception ex)
+            {
+                return ApplicationResult<QueryMemberResp>.Failed(new ApplicationError() { Code = ReturnCodes.CODE_FAILURE, Description = ex.Message });
+            }
+        }
     }
 }

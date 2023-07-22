@@ -72,5 +72,22 @@ namespace Pazzo.API.Controllers
 
             return new ResponseResult<bool>() { RtnCode = ReturnCodes.CODE_FAILURE, Msg = MsgCodes.Msg_99 };
         }
+
+        [HttpPost("Query")]
+        public async Task<ResponseResult<QueryMemberResp>> Query(QueryMemberReq req)
+        {
+            var result = await this.memberService.QueryAsync(req);
+            if (result.Succeeded)
+            {
+                return new ResponseResult<QueryMemberResp>() { RtnCode = ReturnCodes.CODE_SUCCESS, Data = result.Data };
+            }
+
+            foreach (var error in result.Errors)
+            {
+                return new ResponseResult<QueryMemberResp>() { RtnCode = error.Code, Msg = error.Description };
+            }
+
+            return new ResponseResult<QueryMemberResp>() { RtnCode = ReturnCodes.CODE_FAILURE, Msg = MsgCodes.Msg_99 };
+        }
     }
 }

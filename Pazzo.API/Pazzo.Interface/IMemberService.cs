@@ -16,5 +16,7 @@ namespace Pazzo.Interface
         Task<ApplicationResult<UpdateMemberResp>> UpdateAsync(UpdateMemberReq req);
 
         Task<ApplicationResult<bool>> DeleteAsync(DeleteMemberReq req);
+
+        Task<ApplicationResult<QueryMemberResp>> QueryAsync(QueryMemberReq req);
     }
 }
