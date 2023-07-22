@@ -2,12 +2,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pazzo.API.Extentions;
+using Pazzo.Repository.Contexts;
+using Pazzo.Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +31,10 @@ namespace Pazzo.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var connection = Configuration.GetConnectionString("Pazzo");
+            services.AddDbContext<PazzoContext>(options => options.UseSqlServer(connection));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pazzo.API", Version = "v1" });

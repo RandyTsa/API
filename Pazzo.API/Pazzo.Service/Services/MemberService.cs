@@ -1,5 +1,7 @@
-﻿using Pazzo.Interface;
+﻿using Pazzo.Common.Msg;
+using Pazzo.Interface;
 using Pazzo.Interface.Request;
+using Pazzo.Interface.Response;
 using Pazzo.Repository.Models;
 using Pazzo.Repository.Repositories;
 using System;
@@ -16,19 +18,20 @@ namespace Pazzo.Service
             this.memberRepository = memberRepository;
         }
 
-        public async Task<ApplicationResult<Member>> CreateMemberAsync(CreateMemberReq req)
+        public async Task<ApplicationResult<CreateMemberResp>> CreateMemberAsync(CreateMemberReq req)
         {
-            var isParse = int.TryParse(req.IdNumber, out int id);
-
-            if (!isParse)
-            {
-                throw new Exception("Id 只允許為數字");
-            }
             var entity = new Member() { IdNumber = req.IdNumber, Name = req.Name };
 
             var effectRows = await memberRepository.CreateByDapperAsync(entity);
 
-            return effectRows > 0 ? ApplicationResult<Member>.Success : ApplicationResult<Member>.Failed();
+            if (effectRows > 0)
+            {
+                var resp = new CreateMemberResp() { MemberId = effectRows };
+
+                return ApplicationResult<CreateMemberResp>.Successed(resp);
+            }
+
+            return ApplicationResult<CreateMemberResp>.Failed(new ApplicationError() { Code = ReturnCodes.CODE_FAILURE, Description = MsgCodes.Msg_99 });
         }
     }
 }

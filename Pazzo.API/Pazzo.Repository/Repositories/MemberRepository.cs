@@ -21,16 +21,18 @@ namespace Pazzo.Repository.Repositories
 
         public async Task<int> CreateByDapperAsync(Member member)
         {
-            var sql = @"INSERT INTO pazzo.member (IdNumber, Name)
+            var sql = @"INSERT INTO Member (IdNumber, Name)
+OUTPUT INSERTED.MemberId
 VALUES (@IdNumber, @Name);
 ";
             using (var conn = base.GetConnection())
             {
-                return await conn.QuerySingleAsync(sql, new
+                var newId = await conn.QueryAsync<int>(sql, new
                 {
                     IdNumber = member.IdNumber,
                     Name = member.Name,
                 });
+                return newId.FirstOrDefault();
             }
         }
     }

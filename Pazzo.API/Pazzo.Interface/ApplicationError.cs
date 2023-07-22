@@ -8,7 +8,7 @@ namespace Pazzo.Interface
 {
     public class ApplicationError
     {
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         public string Description { get; set; }
     }
