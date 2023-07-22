@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazzo.Service
+namespace Pazzo.Interface
 {
     public class ApplicationError
     {

@@ -26,7 +26,9 @@ namespace Pazzo.Repository.Contexts
 
             modelBuilder.Entity<Member>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.IdNumber).IsFixedLength(true);
+
+                entity.Property(e => e.Name).IsFixedLength(true);
             });
 
             OnModelCreatingPartial(modelBuilder);

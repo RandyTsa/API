@@ -12,7 +12,11 @@ namespace Pazzo.Repository.Models
     public partial class Member
     {
         [Key]
-        public int Id { get; set; }
+        public int MemberId { get; set; }
+
+        [StringLength(10)]
+        public string IdNumber { get; set; }
+
         [StringLength(10)]
         public string Name { get; set; }
     }
