@@ -25,7 +25,7 @@ namespace Pazzo.API.Controllers
         [HttpPost("Create")]
         public async Task<ResponseResult<CreateMemberResp>> Create(CreateMemberReq req)
         {
-            var result = await this.memberService.CreateMemberAsync(req);
+            var result = await this.memberService.CreateAsync(req);
             if (result.Succeeded)
             {
                 return new ResponseResult<CreateMemberResp>() { RtnCode = ReturnCodes.CODE_SUCCESS, Data = result.Data };
@@ -37,6 +37,40 @@ namespace Pazzo.API.Controllers
             }
 
             return new ResponseResult<CreateMemberResp>();
+        }
+
+        [HttpPost("Update")]
+        public async Task<ResponseResult<UpdateMemberResp>> Update(UpdateMemberReq req)
+        {
+            var result = await this.memberService.UpdateAsync(req);
+            if (result.Succeeded)
+            {
+                return new ResponseResult<UpdateMemberResp>() { RtnCode = ReturnCodes.CODE_SUCCESS, Data = result.Data };
+            }
+
+            foreach (var error in result.Errors)
+            {
+                return new ResponseResult<UpdateMemberResp>() { RtnCode = error.Code, Msg = error.Description };
+            }
+
+            return new ResponseResult<UpdateMemberResp>() { RtnCode = ReturnCodes.CODE_FAILURE, Msg = MsgCodes.Msg_99 };
+        }
+
+        [HttpPost("Delete")]
+        public async Task<ResponseResult<bool>> Delete(DeleteMemberReq req)
+        {
+            var result = await this.memberService.DeleteAsync(req);
+            if (result.Succeeded)
+            {
+                return new ResponseResult<bool>() { RtnCode = ReturnCodes.CODE_SUCCESS, Data = result.Data };
+            }
+
+            foreach (var error in result.Errors)
+            {
+                return new ResponseResult<bool>() { RtnCode = error.Code, Msg = error.Description };
+            }
+
+            return new ResponseResult<bool>() { RtnCode = ReturnCodes.CODE_FAILURE, Msg = MsgCodes.Msg_99 };
         }
     }
 }

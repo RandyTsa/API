@@ -11,6 +11,10 @@ namespace Pazzo.Interface
 {
     public interface IMemberService
     {
-        Task<ApplicationResult<CreateMemberResp>> CreateMemberAsync(CreateMemberReq req);
+        Task<ApplicationResult<CreateMemberResp>> CreateAsync(CreateMemberReq req);
+
+        Task<ApplicationResult<UpdateMemberResp>> UpdateAsync(UpdateMemberReq req);
+
+        Task<ApplicationResult<bool>> DeleteAsync(DeleteMemberReq req);
     }
 }

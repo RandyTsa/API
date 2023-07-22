@@ -35,10 +35,50 @@ VALUES (@IdNumber, @Name);
                 return newId.FirstOrDefault();
             }
         }
+
+        public async Task<Member> UpdateByDapperAsync(Member member)
+        {
+            var sql = @"UPDATE Member
+SET Name = @Name, IdNumber = @IdNumber
+WHERE MemberId = @MemberId;
+
+Select * FROM Member Where MemberId = @MemberId
+";
+
+            using (var conn = base.GetConnection())
+            {
+                var result = await conn.QueryAsync<Member>(sql, new
+                {
+                    IdNumber = member.IdNumber,
+                    Name = member.Name,
+                    MemberId = member.MemberId,
+                });
+
+                return result.FirstOrDefault();
+            }
+        }
+
+        public async Task<int> DeleteByDapperAsync(int memberId)
+        {
+            var sql = @"DELETE FROM Member
+WHERE MemberId = @MemberId;
+";
+            using (var conn = base.GetConnection())
+            {
+                return await conn.ExecuteAsync(sql, new
+                {
+                    MemberId = memberId,
+                });
+            }
+        }
     }
 
     public interface IMemberRepository : IBaseRepository<Member>
     {
         Task<int> CreateByDapperAsync(Member member);
+
+        Task<Member> UpdateByDapperAsync(Member member);
+
+        Task<int> DeleteByDapperAsync(int memberId);
     }
 }
