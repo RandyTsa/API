@@ -1,0 +1,54 @@
+# .NET
+*.dll
+*.exe
+*.pdb
+
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.vscode/
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.bak
+
+# NuGet
+packages/
+
+# MSTest
+*.trx
+*.testsettings
+
+# Resharper
+_resharper*
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Installshield output folder
+[Ee]xpress/
+
+# Docusaurus
+build/
+
+# Tools
+_ReSharper*/
+*.resharperoptions
+
+# Others
+*~
+*.swp
