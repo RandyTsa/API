@@ -32,6 +32,7 @@ namespace Pazzo.API
         {
             services.AddControllers();
 
+            // DB connection
             var connection = Configuration.GetConnectionString("Pazzo");
             services.AddDbContext<PazzoContext>(options => options.UseSqlServer(connection));
 
@@ -39,6 +40,8 @@ namespace Pazzo.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pazzo.API", Version = "v1" });
             });
+
+            // ¤¶­±DI & Repository Container
             services.AddFeatureServices();
         }
 

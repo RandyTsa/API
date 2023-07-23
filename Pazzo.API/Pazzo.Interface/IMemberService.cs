@@ -11,12 +11,32 @@ namespace Pazzo.Interface
 {
     public interface IMemberService
     {
+        /// <summary>
+        /// 新增會員
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         Task<ApplicationResult<CreateMemberResp>> CreateAsync(CreateMemberReq req);
 
+        /// <summary>
+        /// 更新會員
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         Task<ApplicationResult<UpdateMemberResp>> UpdateAsync(UpdateMemberReq req);
 
+        /// <summary>
+        /// 刪除會員
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         Task<ApplicationResult<bool>> DeleteAsync(DeleteMemberReq req);
 
+        /// <summary>
+        /// 查詢單筆會員
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         Task<ApplicationResult<QueryMemberResp>> QueryAsync(QueryMemberReq req);
     }
 }

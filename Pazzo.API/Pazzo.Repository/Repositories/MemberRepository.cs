@@ -19,6 +19,11 @@ namespace Pazzo.Repository.Repositories
             this.pazzoContext = pazzoContext;
         }
 
+        /// <summary>
+        /// Insert method.
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
         public async Task<int> CreateByDapperAsync(Member member)
         {
             var sql = @"INSERT INTO Member (IdNumber, Name)
@@ -36,6 +41,11 @@ VALUES (@IdNumber, @Name);
             }
         }
 
+        /// <summary>
+        /// Update method.
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
         public async Task<Member> UpdateByDapperAsync(Member member)
         {
             var sql = @"UPDATE Member
@@ -58,6 +68,11 @@ Select * FROM Member Where MemberId = @MemberId
             }
         }
 
+        /// <summary>
+        /// Delete method.
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
         public async Task<int> DeleteByDapperAsync(int memberId)
         {
             var sql = @"DELETE FROM Member
@@ -72,6 +87,11 @@ WHERE MemberId = @MemberId;
             }
         }
 
+        /// <summary>
+        /// Query method.
+        /// </summary>
+        /// <param name="member"></param>
+        /// <returns></returns>
         public async Task<Member> QueryByDapperAsync(int memberId)
         {
             var sql = @"SELECT * FROM Member

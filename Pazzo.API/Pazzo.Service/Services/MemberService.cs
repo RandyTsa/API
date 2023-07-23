@@ -24,6 +24,7 @@ namespace Pazzo.Service
 
             var newId = await memberRepository.CreateByDapperAsync(entity);
 
+            // 有 id 代表新增成功
             if (newId > 0)
             {
                 return ApplicationResult<CreateMemberResp>.Successed(new CreateMemberResp() { MemberId = newId });
@@ -36,6 +37,7 @@ namespace Pazzo.Service
         {
             try
             {
+                // mapping entity to DB
                 var entity = new Member()
                 {
                     MemberId = req.MemberId,
@@ -44,6 +46,7 @@ namespace Pazzo.Service
                 };
                 var member = await memberRepository.UpdateByDapperAsync(entity);
 
+                // 有回傳 entity 代表更新成功
                 if (member != null)
                 {
                     return ApplicationResult<UpdateMemberResp>.Successed(new UpdateMemberResp() { MemberId = member.MemberId, Name = member.Name, IdNumber = member.IdNumber });
@@ -63,6 +66,7 @@ namespace Pazzo.Service
             {
                 var effectRows = await memberRepository.DeleteByDapperAsync(req.MemberId);
 
+                // 被影響資料筆數 > 0 代表成功
                 if (effectRows > 0)
                 {
                     return ApplicationResult<bool>.Successed(true);
@@ -82,6 +86,7 @@ namespace Pazzo.Service
             {
                 var member = await memberRepository.QueryByDapperAsync(req.MemberId);
 
+                // 有查詢到 entity mapping 回 ViewModel
                 if (member != null)
                 {
                     return ApplicationResult<QueryMemberResp>.Successed(new QueryMemberResp() { Name = member.Name, IdNumber = member.IdNumber });
