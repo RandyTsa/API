@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.API", "Pazzo.API\Pazzo.API.csproj", "{860AF0C9-6449-4509-810D-9AC87EF3CA85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.Service", "Pazzo.Service\Pazzo.Service.csproj", "{3FEB4A3E-8AE9-4B9D-B45F-4D44976F3166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.Interface", "Pazzo.Interface\Pazzo.Interface.csproj", "{192FB89C-49A4-4D0A-8362-C980B63FFE85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.UnitTest", "Pazzo.UnitTest\Pazzo.UnitTest.csproj", "{91E8BABF-A3BD-4CAB-B31A-5FA52942E778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.Repository", "Pazzo.Repository\Pazzo.Repository.csproj", "{540B457D-325E-4449-8A7E-39A2EC002AB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pazzo.Common", "Pazzo.Common\Pazzo.Common.csproj", "{9338892E-5705-45C9-BFD8-94E4A7031708}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{860AF0C9-6449-4509-810D-9AC87EF3CA85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{860AF0C9-6449-4509-810D-9AC87EF3CA85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{860AF0C9-6449-4509-810D-9AC87EF3CA85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{860AF0C9-6449-4509-810D-9AC87EF3CA85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEB4A3E-8AE9-4B9D-B45F-4D44976F3166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEB4A3E-8AE9-4B9D-B45F-4D44976F3166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEB4A3E-8AE9-4B9D-B45F-4D44976F3166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEB4A3E-8AE9-4B9D-B45F-4D44976F3166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192FB89C-49A4-4D0A-8362-C980B63FFE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192FB89C-49A4-4D0A-8362-C980B63FFE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192FB89C-49A4-4D0A-8362-C980B63FFE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192FB89C-49A4-4D0A-8362-C980B63FFE85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E8BABF-A3BD-4CAB-B31A-5FA52942E778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E8BABF-A3BD-4CAB-B31A-5FA52942E778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E8BABF-A3BD-4CAB-B31A-5FA52942E778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E8BABF-A3BD-4CAB-B31A-5FA52942E778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540B457D-325E-4449-8A7E-39A2EC002AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540B457D-325E-4449-8A7E-39A2EC002AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540B457D-325E-4449-8A7E-39A2EC002AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540B457D-325E-4449-8A7E-39A2EC002AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9338892E-5705-45C9-BFD8-94E4A7031708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9338892E-5705-45C9-BFD8-94E4A7031708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9338892E-5705-45C9-BFD8-94E4A7031708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9338892E-5705-45C9-BFD8-94E4A7031708}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92339AA4-E638-439C-886A-B69A28A2DA01}
+	EndGlobalSection
+EndGlobal
